@@ -7,7 +7,7 @@ module CarrierWave
           uploader_instance = uploader_instance.clone
           begin
             uploader_instance.cache_stored_file!
-            @file = uploader_instance.to_s
+            @file = uploader_instance.path.to_s
           rescue Exception => e
             Rails.logger.debug "Unable to download/copy file: #{e}"
           end
